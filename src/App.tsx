@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+import {Display} from "./components/Display";
 
 function App() {
     let startValue = 0
@@ -7,7 +8,7 @@ function App() {
     const [count, setCount] = useState(0)
     return (
         <div className="App">
-            <div>{count}</div>
+            <Display count={count} maxValue={maxValue}/>
             <button disabled={count === maxValue} onClick={() => setCount(count + 1)}>inc</button>
             <button disabled={count === startValue} onClick={() => setCount(0)}>reset</button>
         </div>
