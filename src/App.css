@@ -1,5 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 .App {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #282c34;
+    height: 100vh;
 }
 
 .App-logo {
@@ -40,3 +48,52 @@
         transform: rotate(360deg);
     }
 }
+
+.counter {
+    width: 300px;
+    height: 250px;
+    border: 3px solid #61dafb;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.display {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #61dafb;
+    border: 3px solid #61dafb;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 70px;
+    font-weight: bold;
+    color: #282c34;
+}
+
+.buttons {
+    height: 73px;
+    border: 3px solid #61dafb;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+
+.button {
+    background-color: #61dafb;
+    color: #282c34;
+    border: none;
+    width: 70px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: default;
+    opacity: 0.4;
+}
+

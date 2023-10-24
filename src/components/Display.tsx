@@ -7,7 +7,7 @@ type DispalyPropsType = {
 
 export const Display: React.FC<DispalyPropsType> = ({count, maxValue}) => {
     return (
-        <div>
+        <div className='display'>
             <div className={count === maxValue ? 'active' : ''}>{count}</div>
         </div>
     );
