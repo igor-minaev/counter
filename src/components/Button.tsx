@@ -2,9 +2,9 @@ import {ButtonHTMLAttributes} from "react";
 
 type ButtonPropsType = ButtonHTMLAttributes<HTMLButtonElement>
 
-export const Button = ({children, onClick, ...restProps}: ButtonPropsType) => {
+export const Button = ({children, ...restProps}: ButtonPropsType) => {
     return (
-        <button onClick={onClick} {...restProps}>{children}</button>
+        <button {...restProps}>{children}</button>
     );
 };
 
