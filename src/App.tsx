@@ -1,13 +1,10 @@
 import './App.css'
-import {useState} from "react";
+import {Counter} from "./Counter.tsx";
 
 function App() {
-    let startValue = 0
-    let maxValue = 5
-    const [counterValue, setCounterValue] = useState(startValue)
     return (
         <div className="app">
-
+            <Counter/>
         </div>
     )
 }
