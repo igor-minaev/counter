@@ -19,6 +19,7 @@ export const Counter = () => {
             <div className='buttonsWrapper'>
                 <Button className='button' disabled={isIncreaseDisabledBtn} onClick={increaseCounterValue}>inc</Button>
                 <Button className='button' disabled={isResetDisabledBtn} onClick={resetCounterValue}>reset</Button>
+                <Button className='button'>set</Button>
             </div>
         </div>
     );
