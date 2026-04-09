@@ -1,26 +1,45 @@
-import {CounterScreen} from "./CounterScreen.tsx";
-import {Button} from "./components/Button.tsx";
 import {useState} from "react";
+import {Settings} from "./Settings.tsx";
+import {CounterView} from "./CounterView.tsx";
 
 export const Counter = () => {
-    const startValue = 0
-    const maxValue = 5
+    const [startValue, setStartValue] = useState(0)
+    const [maxValue, setMaxValue] = useState(5)
     const [counterValue, setCounterValue] = useState(startValue)
+    const [settingsMode, setSettingsMode] = useState(false)
+
 
     const increaseCounterValue = () => counterValue < maxValue && setCounterValue(counterValue + 1)
+
     const resetCounterValue = () => setCounterValue(startValue)
+
+    const openSettings = () => setSettingsMode(true)
+
+    const setSettings = (startValue: number, maxValue: number) => {
+        setStartValue(startValue)
+        setMaxValue(maxValue)
+        setCounterValue(startValue)
+        setSettingsMode(false)
+    }
 
     const isIncreaseDisabledBtn = counterValue === maxValue
     const isResetDisabledBtn = counterValue === startValue
 
+
     return (
         <div className='counter'>
-            <CounterScreen counterValue={counterValue} maxValue={maxValue}/>
-            <div className='buttonsWrapper'>
-                <Button className='button' disabled={isIncreaseDisabledBtn} onClick={increaseCounterValue}>inc</Button>
-                <Button className='button' disabled={isResetDisabledBtn} onClick={resetCounterValue}>reset</Button>
-                <Button className='button'>set</Button>
-            </div>
+            {settingsMode
+                ?
+                <Settings setSettings={setSettings} startValue={startValue} maxValue={maxValue}/>
+                :
+                <CounterView
+                    counterValue={counterValue}
+                    maxValue={maxValue}
+                    isIncreaseDisabledBtn={isIncreaseDisabledBtn}
+                    isResetDisabledBtn={isResetDisabledBtn}
+                    resetCounterValue={resetCounterValue}
+                    increaseCounterValue={increaseCounterValue}
+                    openSettings={openSettings}/>}
         </div>
     );
 };
