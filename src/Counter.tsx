@@ -2,9 +2,22 @@ import {useState} from "react";
 import {Settings} from "./Settings.tsx";
 import {CounterView} from "./CounterView.tsx";
 
+const getValues = (key: 'startValue' | 'maxValue', defaultValue: number) => {
+    const startValueAsString = localStorage.getItem(key)
+    if (startValueAsString) {
+        return JSON.parse(startValueAsString)
+    }
+    return defaultValue
+}
+
+const DEFAULT_START_VALUE = 0
+const DEFAULT_MAX_VALUE = 5
+
+
 export const Counter = () => {
-    const [startValue, setStartValue] = useState(0)
-    const [maxValue, setMaxValue] = useState(5)
+
+    const [startValue, setStartValue] = useState(getValues("startValue", DEFAULT_START_VALUE))
+    const [maxValue, setMaxValue] = useState(getValues('maxValue', DEFAULT_MAX_VALUE))
     const [counterValue, setCounterValue] = useState(startValue)
     const [settingsMode, setSettingsMode] = useState(false)
 
@@ -16,6 +29,8 @@ export const Counter = () => {
     const openSettings = () => setSettingsMode(true)
 
     const setSettings = (startValue: number, maxValue: number) => {
+        localStorage.setItem('startValue', JSON.stringify(startValue))
+        localStorage.setItem('maxValue', JSON.stringify(maxValue))
         setStartValue(startValue)
         setMaxValue(maxValue)
         setCounterValue(startValue)

@@ -25,7 +25,8 @@ export const Settings = ({
         <div className='counter'>
             <div className="inputsWrapper">
                 <label> start value
-                    <input onChange={onChangeStartValue} type="text" value={newStartValue}/></label>
+                    <input onChange={onChangeStartValue} type="text" value={newStartValue}/>
+                </label>
                 <label> max value
                     <input onChange={onChangeMaxValue} type="text" value={newMaxValue}/>
                 </label>

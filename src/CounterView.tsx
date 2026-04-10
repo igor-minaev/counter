@@ -20,7 +20,6 @@ export const CounterView = ({
                                 resetCounterValue,
                                 openSettings
                             }: CounterViewPropsType) => {
-    console.log('Child: '+ counterValue)
     return (
         <div>
             <CounterScreen counterValue={counterValue} maxValue={maxValue}/>
