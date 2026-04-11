@@ -14,6 +14,7 @@ export const Settings = ({
                          }: SettingsPropsType) => {
     const [newStartValue, setNewStartValue] = useState(startValue)
     const [newMaxValue, setNewMaxValue] = useState(maxValue)
+    const [error, setError] = useState(false)
 
     const onChangeStartValue = (e: ChangeEvent<HTMLInputElement>) => setNewStartValue(+e.currentTarget.value)
 
@@ -22,19 +23,23 @@ export const Settings = ({
     const setSettingsHandler = () => setSettings(newStartValue, newMaxValue)
 
     return (
-        <div className='counter'>
+        <>
             <div className="inputsWrapper">
-                <label> start value
-                    <input onChange={onChangeStartValue} type="text" value={newStartValue}/>
-                </label>
-                <label> max value
-                    <input onChange={onChangeMaxValue} type="text" value={newMaxValue}/>
-                </label>
+                <div className='labelInput'>
+                    <label className='label'> max value:</label>
+                    <input className='input' onChange={onChangeMaxValue} type="number" value={newMaxValue}/>
+                </div>
+                <div className='labelInput'>
+                    <label className='label'> <span className='span'>start value:</span></label>
+                    <input className='input' onChange={onChangeStartValue} type="number" value={newStartValue}/>
+                </div>
+
             </div>
             <div className='buttonsWrapper'>
                 <Button className='button' onClick={setSettingsHandler}>set</Button>
             </div>
-        </div>
-    );
+        </>
+    )
+        ;
 };
 
