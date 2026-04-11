@@ -21,14 +21,14 @@ export const CounterView = ({
                                 openSettings
                             }: CounterViewPropsType) => {
     return (
-        <div>
+        <>
             <CounterScreen counterValue={counterValue} maxValue={maxValue}/>
             <div className='buttonsWrapper'>
                 <Button className='button' disabled={isIncreaseDisabledBtn} onClick={increaseCounterValue}>inc</Button>
                 <Button className='button' disabled={isResetDisabledBtn} onClick={resetCounterValue}>reset</Button>
                 <Button className='button' onClick={openSettings}>set</Button>
             </div>
-        </div>
+        </>
     );
 };
 
