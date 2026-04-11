@@ -16,9 +16,27 @@ export const Settings = ({
     const [newMaxValue, setNewMaxValue] = useState(maxValue)
     const [error, setError] = useState(false)
 
-    const onChangeStartValue = (e: ChangeEvent<HTMLInputElement>) => setNewStartValue(+e.currentTarget.value)
+    const onChangeStartValue = (e: ChangeEvent<HTMLInputElement>) => {
+        const newValue = +e.currentTarget.value;
+        setNewStartValue(newValue);
+        if (newValue < 0 || newValue >= newMaxValue) {
+            setError(true);
+        } else {
+            setError(false);
+        }
+    }
 
-    const onChangeMaxValue = (e: ChangeEvent<HTMLInputElement>) => setNewMaxValue(+e.currentTarget.value)
+
+    const onChangeMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
+        const newValue = +e.currentTarget.value
+        setNewMaxValue(newValue)
+        if (newValue <= 0 || newValue <= newStartValue || newStartValue < 0) {
+            setError(true);
+        } else {
+            setError(false);
+        }
+    }
+
 
     const setSettingsHandler = () => setSettings(newStartValue, newMaxValue)
 
@@ -27,16 +45,16 @@ export const Settings = ({
             <div className="inputsWrapper">
                 <div className='labelInput'>
                     <label className='label'> max value:</label>
-                    <input className='input' onChange={onChangeMaxValue} type="number" value={newMaxValue}/>
+                    <input className={error ? 'error' : 'input'} onChange={onChangeMaxValue} type="number" value={newMaxValue}/>
                 </div>
                 <div className='labelInput'>
                     <label className='label'> <span className='span'>start value:</span></label>
-                    <input className='input' onChange={onChangeStartValue} type="number" value={newStartValue}/>
+                    <input className={error ? 'error' : 'input'} onChange={onChangeStartValue} type="number" value={newStartValue}/>
                 </div>
 
             </div>
             <div className='buttonsWrapper'>
-                <Button className='button' onClick={setSettingsHandler}>set</Button>
+                <Button disabled={error} className='button' onClick={setSettingsHandler}>set</Button>
             </div>
         </>
     )
