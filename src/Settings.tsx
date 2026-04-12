@@ -1,5 +1,6 @@
 import {Button} from "./components/Button.tsx";
 import {ChangeEvent, useState} from "react";
+import {InputWithLabel} from "./InputWithLabel.tsx";
 
 type SettingsPropsType = {
     setSettings: (startValue: number, maxValue: number) => void
@@ -43,15 +44,8 @@ export const Settings = ({
     return (
         <>
             <div className="inputsWrapper">
-                <div className='labelInput'>
-                    <label className='label'> max value:</label>
-                    <input className={error ? 'error' : 'input'} onChange={onChangeMaxValue} type="number" value={newMaxValue}/>
-                </div>
-                <div className='labelInput'>
-                    <label className='label'> <span className='span'>start value:</span></label>
-                    <input className={error ? 'error' : 'input'} onChange={onChangeStartValue} type="number" value={newStartValue}/>
-                </div>
-
+                <InputWithLabel label="max value" value={newMaxValue} onChange={onChangeMaxValue} error={error}/>
+                <InputWithLabel label="start value" value={newStartValue} onChange={onChangeStartValue} error={error}/>
             </div>
             <div className='buttonsWrapper'>
                 <Button disabled={error} className='button' onClick={setSettingsHandler}>set</Button>
