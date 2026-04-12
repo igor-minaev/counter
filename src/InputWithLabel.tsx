@@ -1,17 +1,15 @@
-import {ChangeEvent} from "react";
+import {InputHTMLAttributes} from "react";
 
 type InputWithLabelPropsType = {
-    onChange: (e: ChangeEvent<HTMLInputElement>) => void
-    value: number
     error: boolean
     label: string
-}
+} & InputHTMLAttributes<HTMLInputElement>
 
-export const InputWithLabel = ({onChange, value, error, label}: InputWithLabelPropsType) => {
+export const InputWithLabel = ({onChange, value, error, label, type}: InputWithLabelPropsType) => {
     return (
         <div className='labelInput'>
             <label className='label'>{`${label}:`}</label>
-            <input className={error ? 'error' : 'input'} onChange={onChange} type="number" value={value}/>
+            <input className={error ? 'error' : 'input'} onChange={onChange} type={type} value={value}/>
         </div>
     );
 };

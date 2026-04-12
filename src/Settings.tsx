@@ -44,8 +44,8 @@ export const Settings = ({
     return (
         <>
             <div className="inputsWrapper">
-                <InputWithLabel label="max value" value={newMaxValue} onChange={onChangeMaxValue} error={error}/>
-                <InputWithLabel label="start value" value={newStartValue} onChange={onChangeStartValue} error={error}/>
+                <InputWithLabel type='number' label="max value" value={newMaxValue} onChange={onChangeMaxValue} error={error}/>
+                <InputWithLabel type='number' label="start value" value={newStartValue} onChange={onChangeStartValue} error={error}/>
             </div>
             <div className='buttonsWrapper'>
                 <Button disabled={error} className='button' onClick={setSettingsHandler}>set</Button>
