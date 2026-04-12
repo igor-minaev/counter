@@ -1,6 +1,6 @@
 import {useState} from "react";
-import {Settings} from "./Settings.tsx";
-import {CounterView} from "./CounterView.tsx";
+import {Settings} from "./components/Settings/Settings.tsx";
+import {CounterView} from "./components/CounterView/CounterView.tsx";
 import {getValuesFromLocalStarage, setValuesToLocalStorage} from "./utilsLocalStarage.ts";
 
 

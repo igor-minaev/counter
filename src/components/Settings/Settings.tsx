@@ -1,6 +1,7 @@
-import {Button} from "./components/Button.tsx";
+import {Button} from "../Button/Button.tsx";
 import {ChangeEvent, useState} from "react";
-import {InputWithLabel} from "./InputWithLabel.tsx";
+import {InputWithLabel} from "../InputWithLabel/InputWithLabel.tsx";
+import s from './Settings.module.css'
 
 type SettingsPropsType = {
     setSettings: (startValue: number, maxValue: number) => void
@@ -43,12 +44,12 @@ export const Settings = ({
 
     return (
         <>
-            <div className="inputsWrapper">
+            <div className={s.inputsWrapper}>
                 <InputWithLabel type='number' label="max value" value={newMaxValue} onChange={onChangeMaxValue} error={error}/>
                 <InputWithLabel type='number' label="start value" value={newStartValue} onChange={onChangeStartValue} error={error}/>
             </div>
-            <div className='buttonsWrapper'>
-                <Button disabled={error} className='button' onClick={setSettingsHandler}>set</Button>
+            <div className={s.buttonsWrapper}>
+                <Button disabled={error} onClick={setSettingsHandler}>set</Button>
             </div>
         </>
     )

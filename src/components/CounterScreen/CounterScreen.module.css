@@ -1,0 +1,13 @@
+.counterScreen {
+    border: 2px solid #5ac191;
+    border-radius: 10px;
+    padding: 30px 20px;
+    font-size: 70px;
+    font-weight: bold;
+    color: #5ac191;
+
+}
+
+.maxValue {
+    color: red;
+}

@@ -1,4 +1,5 @@
 import {InputHTMLAttributes} from "react";
+import s from './InputWithLabel.module.css'
 
 type InputWithLabelPropsType = {
     error: boolean
@@ -7,9 +8,9 @@ type InputWithLabelPropsType = {
 
 export const InputWithLabel = ({onChange, value, error, label, type}: InputWithLabelPropsType) => {
     return (
-        <div className='labelInput'>
-            <label className='label'>{`${label}:`}</label>
-            <input className={error ? 'error' : 'input'} onChange={onChange} type={type} value={value}/>
+        <div className={s.labelInput}>
+            <label className={s.label}>{`${label}:`}</label>
+            <input className={error ? s.error : s.input} onChange={onChange} type={type} value={value}/>
         </div>
     );
 };

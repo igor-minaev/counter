@@ -1,0 +1,14 @@
+.button {
+    color: #2c2b2b;
+    background-color: #5ac191;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:disabled {
+    opacity: 0.35;
+}

@@ -1,5 +1,6 @@
-import {CounterScreen} from "./CounterScreen.tsx";
-import {Button} from "./components/Button.tsx";
+import {CounterScreen} from "../CounterScreen/CounterScreen.tsx";
+import {Button} from "../Button/Button.tsx";
+import s from './CounterView.module.css'
 
 type CounterViewPropsType = {
     counterValue: number
@@ -23,10 +24,10 @@ export const CounterView = ({
     return (
         <>
             <CounterScreen counterValue={counterValue} maxValue={maxValue}/>
-            <div className='buttonsWrapper'>
-                <Button className='button' disabled={isIncreaseDisabledBtn} onClick={increaseCounterValue}>inc</Button>
-                <Button className='button' disabled={isResetDisabledBtn} onClick={resetCounterValue}>reset</Button>
-                <Button className='button' onClick={openSettings}>set</Button>
+            <div className={s.buttonsWrapper}>
+                <Button disabled={isIncreaseDisabledBtn} onClick={increaseCounterValue}>inc</Button>
+                <Button disabled={isResetDisabledBtn} onClick={resetCounterValue}>reset</Button>
+                <Button onClick={openSettings}>set</Button>
             </div>
         </>
     );
