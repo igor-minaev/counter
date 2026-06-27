@@ -3,15 +3,23 @@ import s from './CounterScreen.module.css'
 type CounterScreenPropsType = {
     counterValue: number
     maxValue: number
+    settingsMode: boolean
+    error: boolean
 }
 
-export const CounterScreen = ({counterValue, maxValue}: CounterScreenPropsType) => {
+export const CounterScreen = ({counterValue, maxValue, settingsMode, error}: CounterScreenPropsType) => {
 
-    const maxValueClassName = counterValue === maxValue ? s.maxValue : ''
+    const content = settingsMode
+        ? (error ? 'Incorrect' : 'enter values and press "set"')
+        : counterValue
+
+    const finalClassName = settingsMode
+        ? (error ? s.error : s.message)
+        : (counterValue === maxValue ? s.maxValue : '')
 
     return (
         <div className={s.counterScreen}>
-            <span className={maxValueClassName}>{counterValue}</span>
+            <p className={finalClassName}>{content}</p>
         </div>
     );
 };

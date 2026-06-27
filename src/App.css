@@ -5,12 +5,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 100px;
+}
+
+.container{
+    display: flex;
+    gap: 50px;
 }
 
 .counter {
     max-width: 400px;
     width: 100%;
-    padding: 20px;
+    padding: 20px 10px;
     border: 2px solid #5ac191;
     border-radius: 10px;
     text-align: center;

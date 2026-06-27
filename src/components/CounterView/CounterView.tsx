@@ -9,7 +9,8 @@ type CounterViewPropsType = {
     isResetDisabledBtn: boolean
     increaseCounterValue: () => void
     resetCounterValue: () => void
-    openSettings: () => void
+    settingsMode: boolean
+    error: boolean
 }
 
 export const CounterView = ({
@@ -19,17 +20,17 @@ export const CounterView = ({
                                 isResetDisabledBtn,
                                 increaseCounterValue,
                                 resetCounterValue,
-                                openSettings
+                                settingsMode,
+                                error
                             }: CounterViewPropsType) => {
     return (
-        <>
-            <CounterScreen counterValue={counterValue} maxValue={maxValue}/>
+        <div className='counter'>
+            <CounterScreen settingsMode={settingsMode} error={error} counterValue={counterValue} maxValue={maxValue}/>
             <div className={s.buttonsWrapper}>
                 <Button disabled={isIncreaseDisabledBtn} onClick={increaseCounterValue}>inc</Button>
                 <Button disabled={isResetDisabledBtn} onClick={resetCounterValue}>reset</Button>
-                <Button onClick={openSettings}>set</Button>
             </div>
-        </>
+        </div>
     );
 };
 

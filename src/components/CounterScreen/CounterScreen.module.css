@@ -1,13 +1,22 @@
 .counterScreen {
+    min-height: 150px;
     border: 2px solid #5ac191;
     border-radius: 10px;
-    padding: 30px 20px;
     font-size: 70px;
     font-weight: bold;
     color: #5ac191;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 }
 
-.maxValue {
+.maxValue,
+.error {
     color: red;
+}
+
+.message,
+.error {
+    font-size: 24px;
 }

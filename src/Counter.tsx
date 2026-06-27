@@ -14,13 +14,13 @@ export const Counter = () => {
     const [maxValue, setMaxValue] = useState(getValuesFromLocalStarage('maxValue', DEFAULT_MAX_VALUE))
     const [counterValue, setCounterValue] = useState(startValue)
     const [settingsMode, setSettingsMode] = useState(false)
+    const [error, setError] = useState(false)
 
 
     const increaseCounterValue = () => counterValue < maxValue && setCounterValue(counterValue + 1)
 
     const resetCounterValue = () => setCounterValue(startValue)
 
-    const openSettings = () => setSettingsMode(true)
 
     const setSettings = (startValue: number, maxValue: number) => {
         setValuesToLocalStorage('startValue', startValue)
@@ -29,6 +29,7 @@ export const Counter = () => {
         setMaxValue(maxValue)
         setCounterValue(startValue)
         setSettingsMode(false)
+        setError(false)
     }
 
     const isIncreaseDisabledBtn = counterValue === maxValue
@@ -36,20 +37,26 @@ export const Counter = () => {
 
 
     return (
-        <div className='counter'>
-            {settingsMode
-                ?
-                <Settings setSettings={setSettings} startValue={startValue} maxValue={maxValue}/>
-                :
-                <CounterView
-                    counterValue={counterValue}
-                    maxValue={maxValue}
-                    isIncreaseDisabledBtn={isIncreaseDisabledBtn}
-                    isResetDisabledBtn={isResetDisabledBtn}
-                    resetCounterValue={resetCounterValue}
-                    increaseCounterValue={increaseCounterValue}
-                    openSettings={openSettings}/>}
-        </div>
+        <>
+            <Settings
+                setSettingsMode={setSettingsMode}
+                settingsMode={settingsMode}
+                setSettings={setSettings}
+                startValue={startValue}
+                maxValue={maxValue}
+                error={error}
+                setError={setError}
+            />
+            <CounterView
+                counterValue={counterValue}
+                maxValue={maxValue}
+                isIncreaseDisabledBtn={isIncreaseDisabledBtn}
+                isResetDisabledBtn={isResetDisabledBtn}
+                resetCounterValue={resetCounterValue}
+                increaseCounterValue={increaseCounterValue}
+                settingsMode={settingsMode}
+                error={error}/>
+        </>
     );
 };
 
