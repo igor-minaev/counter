@@ -5,7 +5,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 140px;
 }
+
 
 .counter {
     max-width: 400px;
@@ -15,7 +17,6 @@
     border-radius: 10px;
     text-align: center;
     background-color: #2c2b2b;
-
 }
 
 

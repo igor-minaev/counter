@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {Settings} from "./components/Settings/Settings.tsx";
 import {CounterView} from "./components/CounterView/CounterView.tsx";
-import {getValuesFromLocalStarage, setValuesToLocalStorage} from "./utilsLocalStarage.ts";
+import {getValuesFromLocalStorage, setValuesToLocalStorage} from "./utilsLocalStorage"
 
 
 const DEFAULT_START_VALUE = 0
@@ -10,8 +10,8 @@ const DEFAULT_MAX_VALUE = 5
 
 export const Counter = () => {
 
-    const [startValue, setStartValue] = useState(getValuesFromLocalStarage("startValue", DEFAULT_START_VALUE))
-    const [maxValue, setMaxValue] = useState(getValuesFromLocalStarage('maxValue', DEFAULT_MAX_VALUE))
+    const [startValue, setStartValue] = useState(getValuesFromLocalStorage("startValue", DEFAULT_START_VALUE))
+    const [maxValue, setMaxValue] = useState(getValuesFromLocalStorage('maxValue', DEFAULT_MAX_VALUE))
     const [counterValue, setCounterValue] = useState(startValue)
     const [settingsMode, setSettingsMode] = useState(false)
 
@@ -52,4 +52,3 @@ export const Counter = () => {
         </div>
     );
 };
-

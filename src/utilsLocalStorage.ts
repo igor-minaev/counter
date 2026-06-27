@@ -1,4 +1,4 @@
-export const getValuesFromLocalStarage = (key: 'startValue' | 'maxValue', defaultValue: number) => {
+export const getValuesFromLocalStorage = (key: 'startValue' | 'maxValue', defaultValue: number) => {
     const startValueAsString = localStorage.getItem(key)
     if (startValueAsString) {
         return JSON.parse(startValueAsString)
