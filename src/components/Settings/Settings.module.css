@@ -1,10 +1,13 @@
 .inputsWrapper {
     display: flex;
     flex-direction: column;
+    min-height: 150px;
     gap: 26px;
+    padding: 0 20px;
     border: 2px solid #5ac191;
-    padding: 30px 20px;
+    justify-content: center;
     border-radius: 10px;
+    flex: 1;
 }
 .buttonsWrapper {
     display: flex;
