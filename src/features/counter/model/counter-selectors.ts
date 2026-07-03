@@ -1,4 +1,4 @@
-import type {RootState} from "../../../store";
+import type {RootState} from "../../../app/store";
 
 export const selectStartValue = (state: RootState): number => state.counter.startValue
 export const selectMaxValue = (state: RootState): number => state.counter.maxValue
