@@ -1,13 +1,12 @@
+import {useAppSelector} from "@/common/hooks/useAppSelector";
+import {selectCounterValue, selectError, selectMaxValue, selectSettingsMode} from "../../../../model/counter-selectors";
 import s from './CounterScreen.module.css'
 
-type CounterScreenPropsType = {
-    counterValue: number
-    maxValue: number
-    settingsMode: boolean
-    error: boolean
-}
-
-export const CounterScreen = ({counterValue, maxValue, settingsMode, error}: CounterScreenPropsType) => {
+export const CounterScreen = () => {
+    const settingsMode = useAppSelector(selectSettingsMode)
+    const error = useAppSelector(selectError)
+    const counterValue = useAppSelector(selectCounterValue)
+    const maxValue = useAppSelector(selectMaxValue)
 
     const content = settingsMode
         ? (error ? 'Incorrect' : 'enter values and press "set"')

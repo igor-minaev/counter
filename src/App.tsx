@@ -1,5 +1,5 @@
 import './App.css'
-import {Counter} from "./Counter.tsx";
+import {Counter} from "./features/counter/ui/Counter/Counter.tsx";
 
 function App() {
     return (
