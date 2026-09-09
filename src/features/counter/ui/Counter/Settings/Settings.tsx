@@ -3,8 +3,15 @@ import {InputWithLabel} from "@/common/components/InputWithLabel/InputWithLabel"
 import {useAppDispatch} from "@/common/hooks/useAppDispatch";
 import {useAppSelector} from "@/common/hooks/useAppSelector";
 import {ChangeEvent, useState} from "react";
-import {setErrorAC, setSettingsAC, setSettingsModeAC} from "../../../model/counter-reducer";
-import {selectError, selectMaxValue, selectSettingsMode, selectStartValue} from "../../../model/counter-selectors";
+import {
+    selectError,
+    selectMaxValue, selectSettingsMode,
+    selectStartValue,
+    setErrorAC,
+    setSettingsAC,
+    setSettingsModeAC
+} from "../../../model/counter-slice";
+
 import s from './Settings.module.css'
 
 

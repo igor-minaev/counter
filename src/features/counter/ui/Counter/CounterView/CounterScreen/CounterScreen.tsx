@@ -1,5 +1,11 @@
 import {useAppSelector} from "@/common/hooks/useAppSelector";
-import {selectCounterValue, selectError, selectMaxValue, selectSettingsMode} from "../../../../model/counter-selectors";
+import {
+    selectCounterValue,
+    selectError,
+    selectMaxValue,
+    selectSettingsMode
+} from "@/features/counter/model/counter-slice";
+
 import s from './CounterScreen.module.css'
 
 export const CounterScreen = () => {

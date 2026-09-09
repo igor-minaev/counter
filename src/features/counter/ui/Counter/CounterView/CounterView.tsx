@@ -1,8 +1,14 @@
 import {Button} from "@/common/components/Button/Button";
 import {useAppDispatch} from "@/common/hooks/useAppDispatch";
 import {useAppSelector} from "@/common/hooks/useAppSelector";
-import {increaseCounterAC, resetCounterAC} from "../../../model/counter-reducer";
-import {selectCounterValue, selectError, selectMaxValue, selectStartValue} from "../../../model/counter-selectors";
+import {
+    increaseCounterAC,
+    resetCounterAC,
+    selectCounterValue, selectError,
+    selectMaxValue,
+    selectStartValue
+} from "../../../model/counter-slice";
+
 import {CounterScreen} from "./CounterScreen/CounterScreen.tsx";
 import s from './CounterView.module.css'
 
