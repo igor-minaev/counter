@@ -1,13 +1,31 @@
-import {counterReducer} from "@/features/counter/model/counter-slice";
+import {loadState, saveState} from "@/common/utils/utilsLocalStorage";
+import {counterReducer, initialCounterState} from "@/features/counter/model/counter-slice";
 import {configureStore} from '@reduxjs/toolkit'
+
+
+const persistedSettings = loadState()
+const preloadedState = persistedSettings
+    ? {
+        counter: {
+            ...initialCounterState,
+            ...persistedSettings,
+            counterValue: persistedSettings.startValue
+        }
+    }
+    : undefined
+
 
 export const store = configureStore({
     reducer: {
         counter: counterReducer
-    }
+    },
+    preloadedState
 })
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
+store.subscribe(() => {
+    const {startValue, maxValue} = store.getState().counter
+    saveState({startValue, maxValue})
+})
+
 export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch

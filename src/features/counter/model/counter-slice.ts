@@ -1,14 +1,27 @@
 import {createSlice} from "@reduxjs/toolkit";
 
+export type CounterType = {
+    startValue: number
+    maxValue: number
+    counterValue: number
+    settingsMode: boolean
+    error: boolean
+}
+
+export const initialCounterState: CounterType = {
+    startValue: 0,
+    maxValue: 5,
+    counterValue: 0,
+    settingsMode: false,
+    error: false
+}
+
+
+
+
 export const counterSlice = createSlice({
     name: 'counter',
-    initialState: {
-        startValue: 0,
-        maxValue: 5,
-        counterValue: 0,
-        settingsMode: false,
-        error: false
-    },
+    initialState: initialCounterState,
     selectors: {
         selectStartValue: (state) => state.startValue,
         selectMaxValue: (state) => state.maxValue,
